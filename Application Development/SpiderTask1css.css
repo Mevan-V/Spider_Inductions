@@ -1,0 +1,146 @@
+#hammer{
+    transform-origin: 200px 50px; 
+    height: 100px; 
+    position: absolute;
+    left: 700px; /*-40px*/
+    top: 270px ; /*270*/
+    rotate: 0deg; 
+
+    animation-name: shm;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#score_meter{
+    height: 400px; 
+    position: absolute;
+    left: 600px; /*-140*/
+    top: 0px; /*0px*/
+}
+
+#images{
+    position: relative;
+    text-align: center;
+}
+
+#meter{
+    position: absolute;
+    left: 500px; /*-240*/
+    top: 400px; /*400px*/
+}
+
+#meter_needle{
+    transform-origin: 22px 121px; /*137 758 0.16*/
+    height: 150px; /*150*/
+    position: absolute;
+    left: 718px; /*-22*/
+    top: 510px; /*510*/
+}
+
+#welcome_text{
+    position: absolute;
+    left: 90px; /*-650*/
+    top: 50px;   /*120*/
+    font-family: sans-serif;
+    font-size: 40px;
+    background-color: rgb(233, 210, 178);
+    border-color: rgb(157, 98, 98);
+    border-width: 5px;
+    border-style: solid;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+#score_text{
+    position: absolute;
+    left: 1010px; /*270*/
+    top: 140px;  /*140*/
+    font-family: sans-serif;
+    font-size: 50px;
+    background-color: rgb(233, 210, 178);
+    border-color: rgb(157, 98, 98);
+    border-width: 5px;
+    border-style: solid;
+    padding: 20px;
+    border-radius: 40px;
+    visibility: hidden;
+}
+
+#retry_button{
+    position: absolute;
+    left: 990px; /*400*/
+    top: 570px;  /*380*/
+    visibility: hidden;
+    text-align: center;
+    background-color: red;
+    border-radius: 10px;
+    height: 70px;
+    width: 150px;
+    color: white;
+    border-color: white;
+    box-shadow: none;
+    border: none;
+}
+
+#retry_image{
+    height: 100%;
+}
+
+#stop_button{
+    position: absolute;
+    left: 990px; /*250*/
+    top: 570px; /*570*/
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    height: 70px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+@keyframes shm{     /*Idle Swinging Animation of the hammer*/
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes hit{     /*Drawback animation of the hammer*/
+    0%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes hit2{    /*Actual hit animation of the hammer*/
+    0%{
+        transform: rotate(135deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #welcome_text{
+        font-size: 30px;
+        left: 200px;
+        top: 20px;
+        width: 300px;
+    }
+
+    #score_text{
+        font-size: 38px;
+        left: 950px;
+        width: 200px;
+    }
+}

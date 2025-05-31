@@ -1,1 +1,1 @@
-This repository is to store spider induction task files.
+This repository stores the Spider Induction task files in their corresponding domain named repositories.
