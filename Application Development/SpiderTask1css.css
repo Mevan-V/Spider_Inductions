@@ -2,8 +2,8 @@
     transform-origin: 200px 50px; 
     height: 100px; 
     position: absolute;
-    left: 700px; /*-40px*/
-    top: 270px ; /*270*/
+    left: 700px;
+    top: 270px ;
     rotate: 0deg; 
 
     animation-name: shm;
@@ -15,33 +15,33 @@
 #score_meter{
     height: 400px; 
     position: absolute;
-    left: 600px; /*-140*/
-    top: 0px; /*0px*/
+    left: 600px;
+    top: 0px;
 }
 
-#images{
+#images{                /*Div that contains the score meter and the hammer*/
     position: relative;
     text-align: center;
 }
 
 #meter{
     position: absolute;
-    left: 500px; /*-240*/
-    top: 400px; /*400px*/
+    left: 500px;
+    top: 400px;
 }
 
 #meter_needle{
-    transform-origin: 22px 121px; /*137 758 0.16*/
-    height: 150px; /*150*/
+    transform-origin: 22px 121px;
+    height: 150px;
     position: absolute;
-    left: 718px; /*-22*/
-    top: 510px; /*510*/
+    left: 718px;
+    top: 510px;
 }
 
 #welcome_text{
     position: absolute;
-    left: 90px; /*-650*/
-    top: 50px;   /*120*/
+    left: 90px;
+    top: 50px;
     font-family: sans-serif;
     font-size: 40px;
     background-color: rgb(233, 210, 178);
@@ -54,8 +54,8 @@
 
 #score_text{
     position: absolute;
-    left: 1010px; /*270*/
-    top: 140px;  /*140*/
+    left: 1010px;
+    top: 140px;
     font-family: sans-serif;
     font-size: 50px;
     background-color: rgb(233, 210, 178);
@@ -69,8 +69,8 @@
 
 #retry_button{
     position: absolute;
-    left: 990px; /*400*/
-    top: 570px;  /*380*/
+    left: 990px;
+    top: 570px;
     visibility: hidden;
     text-align: center;
     background-color: red;
@@ -89,8 +89,8 @@
 
 #stop_button{
     position: absolute;
-    left: 990px; /*250*/
-    top: 570px; /*570*/
+    left: 990px;
+    top: 570px;
     background-color: black;
     font-family: sans-serif;
     font-size: 20px;
@@ -130,7 +130,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) { /*Dynamic resolution for phone*/
     #welcome_text{
         font-size: 30px;
         left: 200px;

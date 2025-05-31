@@ -1,16 +1,16 @@
-function getAngle(radians) {
+function getAngle(radians) {        // returns the angle on the meter
     return Math.cos(radians) * 90;
 }
 
-function RotateNeedle(angle){
+function RotateNeedle(angle){       // rotates the needle based on angle
     Needle.style.transform = 'rotate(' + angle + 'deg)';
 }
 
-function delay(ms) {
+function delay(ms) {                // returns promise after requested time
   return new Promise(res => setTimeout(res, ms));
 }
 
-async function HammerHit(){
+async function HammerHit(){         // everything after pressing stop button
     hammer.style.animationName = 'hit';
     hammer.style.animationIterationCount = '1';
     hammer.style.animationDuration = '1.2s';
@@ -25,7 +25,7 @@ async function HammerHit(){
     hammer.style.transform = 'rotate(0deg)';
 }
 
-function NormalHammer(){
+function NormalHammer(){            // everything after pressing retry button (default state)
     hammer.style.animationName = 'shm';
     hammer.style.animationDuration = '2s';
     hammer.style.animationTimingFunction = 'ease-in-out';
@@ -35,7 +35,7 @@ function NormalHammer(){
 }
 
 function GetScore(angle){
-    if ((angle >= -0.5) && (angle <= 0.5)){     //Because getting exact 90deg is borderline impossible
+    if ((angle >= -0.5) && (angle <= 0.5)){     //Because getting exact 90 deg is borderline impossible
         return 100;
     }else if (angle > 0.5){
         return (Math.E**(-angle/35) * 100).toFixed(1);  //Exponential decreasing function
@@ -44,7 +44,7 @@ function GetScore(angle){
     }
 }
 
-async function ShowScore(current_radians){
+async function ShowScore(current_radians){      // Shows score in a slow increasing fashion
     await delay(1200 + 500);
     final_angle = getAngle(current_radians);
     let final_score = GetScore(final_angle);
@@ -62,14 +62,6 @@ async function ShowScore(current_radians){
     retry_button.disabled = false;
     retry_button.style.visibility = 'visible';
 }
-
-let spaceEvent = new KeyboardEvent("keydown", {
-  key: " ",
-  code: "Space",
-  keyCode: 32,
-  which: 32,
-  bubbles: true
-});
 
 const Needle = document.getElementById('meter_needle');
 if (Needle){
@@ -89,7 +81,7 @@ if (Needle){
         current_radians += angle_change_speed;
     }, 0.01);
 
-    document.addEventListener('keydown', function(event){
+    document.addEventListener('keydown', function(event){   // Space bar event listener
         if ((event.key == ' ') && (hittable)){
             angle_change_speed = 0;
             hittable = false;
@@ -100,7 +92,7 @@ if (Needle){
         }
     });
 
-    retry_button.addEventListener('click', function(){
+    retry_button.addEventListener('click', function(){      // retry button event listener
         angle_change_speed = 0.015;
         hittable = true;
         score_text.innerHTML = '';
@@ -110,9 +102,9 @@ if (Needle){
         NormalHammer();
     });
 
-    stop_button.addEventListener('click', function(){
-        if ((clickable) && (hittable)){
-            angle_change_speed = 0;
+    stop_button.addEventListener('click', function(){       // stop button event listener
+        if ((clickable) && (hittable)){                     // had to hard code cause 
+            angle_change_speed = 0;                         // because of lag issues with stop button
             hittable = false;
             stop_button.disabled = true;
             stop_button.style.visibility = 'hidden';
